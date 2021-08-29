@@ -1,0 +1,665 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="en">
+  <siteinfo>
+    <sitename>Wikipedia</sitename>
+    <dbname>enwiki</dbname>
+    <base>https://en.wikipedia.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.37.0-wmf.19</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Wikipedia</namespace>
+      <namespace key="5" case="first-letter">Wikipedia talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="100" case="first-letter">Portal</namespace>
+      <namespace key="101" case="first-letter">Portal talk</namespace>
+      <namespace key="118" case="first-letter">Draft</namespace>
+      <namespace key="119" case="first-letter">Draft talk</namespace>
+      <namespace key="710" case="first-letter">TimedText</namespace>
+      <namespace key="711" case="first-letter">TimedText talk</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Module talk</namespace>
+      <namespace key="2300" case="first-letter">Gadget</namespace>
+      <namespace key="2301" case="first-letter">Gadget talk</namespace>
+      <namespace key="2302" case="case-sensitive">Gadget definition</namespace>
+      <namespace key="2303" case="case-sensitive">Gadget definition talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>McCabe Lake</title>
+    <ns>0</ns>
+    <id>23570393</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843060</id>
+      <parentid>956397680</parentid>
+      <timestamp>2020-05-26T00:14:09Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Miller Lake serenaaaaaa(Nova Scotia)</title>
+    <ns>0</ns>
+    <id>23570394</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843104</id>
+      <parentid>956397811</parentid>
+      <timestamp>2020-05-26T00:14:23Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Miller Lake Mooseland</title>
+    <ns>0</ns>
+    <id>23570395</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843119</id>
+      <parentid>956397819</parentid>
+      <timestamp>2020-05-26T00:14:28Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Vickers Vagabond serenaaaaaa</title>
+    <ns>0</ns>
+    <id>23570396</id>
+    <revision>
+      <id>1001836233</id>
+      <parentid>989695146</parentid>
+      <timestamp>2021-01-21T16:12:12Z</timestamp>
+      <contributor>
+        <username>Monkbot</username>
+        <id>20483999</id>
+      </contributor>
+      <minor />
+      <comment>[[User:Monkbot/task 18|Task 18 (cosmetic)]]: eval 2 templates: hyphenate params (1×); del |ref=harv (1×);</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="6520" xml:space="preserve">&lt;!-- This article is a part of [[Wikipedia:WikiProject Aircraft]]. Please see [[Wikipedia:WikiProject Aircraft/page content]] for recommended layout. --&gt;
+{{Use dmy dates|date=September 2017}}
+{{Use British English|date=September 2017}}
+{|{{Infobox Aircraft Begin
+ | name=Vagabond
+ | image=Vickers Vagabond.jpg
+ | caption=
+}}{{Infobox Aircraft Type
+ | type=Two-seat light aircraft
+ | national origin=[[United Kingdom]]
+ | manufacturer=[[Vickers]]
+ | designer=[[Rex Pierson|R.K. Pierson]]
+ | first flight=1924
+ | introduced=
+ | retired=
+ | status=
+ | primary user=
+ | number built=1
+ | developed from= 
+ | variants with their own articles=
+}}
+|} serenaaaaaa
+The '''Vickers Vagabond''' was [[Vickers]]' entrant for the second Lympne light aircraft competition, held in 1924.  It was a conventional small [[biplane]], with a very unusual method of trimming.  It was eliminated from the trials at an early stage and only one was built.
+
+==Development==
+Following the first Lympne trials held in 1923 for single-seat motor-gliders, the [[Air Ministry]] organised a similar event in 1924, this time for low-powered two-seat aircraft.  The engine capacity limit was set at 1,100 cc. and, as before, the wings had to fold for easy transport and storage.  The trials took place between 29 September and 4&amp;nbsp;October.  Several companies built aircraft for them, including the [[Blackburn Bluebird]], [[Hawker Cygnet]], [[Supermarine Sparrow]] and two from Westland, the [[Westland Woodpigeon|Woodpigeon]] and [[Westland Widgeon (fixed wing)|Widgeon]].
+
+The Type 98 Vagabond was Vickers' entry. It was a single-bay, wire-braced biplane with wings of constant chord except towards the rounded trailing tips.  The wings had equal span and carried marked stagger. There were ailerons on both upper and lower wings, with flaps inboard on the lower wings which could be folded to assist wing-folding.  The pilot and passenger sat in open cockpits, the latter under the upper wing.  The pilot's upward view was enhanced by a small cutout in the trailing edge of the top wing.  The fuselage had a more rounded cross-section than that of the earlier [[Vickers Viget|Viget]], Vickers' single-seat entry to the 1923 competition, extending a little below the lower wing.  The 32&amp;nbsp;hp (24&amp;nbsp;kW)  [[Bristol Cherub]] III flat twin engine was mounted in a smooth nose with the finned cylinders exposed for air cooling.  The horizontal tail was similar to that of the Viget, but the fin and rudder were much more rounded.  Because of the stagger, the mainwheels were in front of the lower wing, braced to the lower fuselage logeron aft to the front wing spar and forward to a point roughly below the upper wing leading edge.&lt;ref name=&quot;Andrews&quot;&gt;{{Harvnb|Andrews|Morgan|1988|pages=481–82}}&lt;/ref&gt;&lt;ref&gt;{{harvnb|''Flight'' 25 September 1924|pp=617–620}}&lt;/ref&gt;
+
+A most unusual feature of the Vagabond was the method of longitudinal trimming.  Rather than changing the angle of the tailplane with respect to the fuselage, the whole rear part of the fuselage was hinged just ahead of the lower wing's trailing edge.  This was controlled via a handwheel between the two cockpits; the rear fuselage was raised at the start of a landing descent to increase drag and slow the aircraft.&lt;ref name=&quot;Andrews&quot;/&gt;
+
+serenaaaaaa
+
+Early flight trials, with H.J.Pain as pilot revealed a need to stiffen the engine mountings.&lt;ref name=&quot;Andrews&quot;/&gt;  When this was done, the Vagabond, now fitted with a three-cylinder 1,095 cc [[Blackburne Thrush]] radial engine flew well enough at Lympne, but was eliminated in the preliminary rounds.  Only one Vagabond, registered  as ''G-EBJF'' on 1 July 1924&lt;ref&gt;[http://www.caa.co.uk/application.aspx?catid=60&amp;pagetype=65&amp;appid=1&amp;mode=detailnosummary&amp;fullregmark=EBJF  CAA]&lt;/ref&gt; was built.  It was deregistered on 24 January 1928.
+&lt;!-- ==Operational history== --&gt;
+&lt;!-- ==Variants== --&gt;
+&lt;!-- ==Units using this aircraft/Operators (choose)== --&gt;
+serenaaaaaa
+
+==Specifications==
+[[File:Vickers_Vagabond_3-view_NACA-TM-289.jpg|thumb|Vickers Vagabond 3-view drawing from NACA-TM-289]]
+{{Aircraft specs
+|ref=&lt;ref&gt;{{Harvnb|Andrews|Morgan|1988|p=482}}&lt;/ref&gt;&lt;!-- the reference for the data given --&gt;
+|prime units?=imp
+&lt;!--
+        General characteristics
+--&gt;
+|genhide= 
+
+|crew=1
+|capacity=1 passenger
+|length m=
+|length ft=21
+|length in=10
+|span m=
+|span ft=28
+|span in=0
+|width ft=10&lt;!-- if applicable --&gt;
+|width in=0&lt;!-- if applicable --&gt;
+|width note=(width wings folded)&lt;ref&gt;{{harvnb|''Flight'' 25 September 1924|p=618}}&lt;/ref&gt;
+|height m=
+|height ft=
+|height in=
+|wing area sqm=
+|wing area sqft=235
+|empty weight kg=
+|empty weight lb=527
+|gross weight kg=
+|gross weight lb=887
+|fuel capacity=
+&lt;!--
+        Powerplant
+--&gt;
+|eng1 number=1
+|eng1 name=[[Bristol Cherub]] III 
+|eng1 type=flat twin
+|eng1 kw=&lt;!-- prop engines --&gt;
+|eng1 hp=32&lt;!-- prop engines --&gt;
+
+|prop blade number=&lt;!-- propeller aircraft --&gt;
+|prop name=
+|prop dia m=&lt;!-- propeller aircraft --&gt;
+|prop dia ft=&lt;!-- propeller aircraft --&gt;
+|prop dia in=&lt;!-- propeller aircraft --&gt;
+
+&lt;!--
+        Performance
+--&gt;
+|perfhide=
+
+|max speed kmh=
+|max speed mph=77
+|max speed kts=
+|max speed mach=&lt;!-- supersonic aircraft --&gt;
+|cruise speed kmh=&lt;!-- if max speed unknown --&gt;
+|cruise speed mph=&lt;!-- if max speed unknown --&gt;
+|cruise speed kts=
+|range km=
+|range miles=
+|range nmi=
+|ceiling m=
+|ceiling ft=
+|climb rate ms=
+|climb rate ftmin=
+|more performance=
+
+|avionics=
+}}
+&lt;!-- ==See also== --&gt;
+{{aircontent
+&lt;!-- include as many lines are appropriate. additional lines/entries with carriage return. --&gt;
+|see also=
+|related=&lt;!-- related developments --&gt;
+|similar aircraft=&lt;!-- similar or comparable aircraft --&gt;
+|lists=&lt;!-- related lists --&gt;
+}}
+
+==References==
+{{commons category|Vickers Vagabond}}
+===Notes===
+{{reflist}}
+
+===Bibliography===
+{{refbegin}}
+*{{cite book |title= Vickers Aircraft since 1908 |last1= Andrews |first1= CF |last2=Morgan|first2=E.B.|edition= 2nd |year= 1988|publisher= Putnam|location= London|isbn= 0-85177-815-1}}
+*{{cite magazine |title=Two-Seater Light 'Plane Competitions at Lympne |magazine=[[Flight International|Flight]] |date=25 September 1924 |volume=XVI |issue=822 |pages=586–626 |url=https://www.flightglobal.com/pdfarchive/view/1924/1924%20-%200586.html |access-date=8 April 2019 |ref={{harvid|''Flight'' 25 September 1924}} }}
+{{refend}}
+
+&lt;!-- ==External links== --&gt;
+{{Vickers aircraft}}
+
+[[Category:1920s British sport aircraft]]
+[[Category:Vickers aircraft|Vagabond]]
+[[Category:Biplanes]]
+[[Category:Single-engined tractor aircraft]]
+[[Category:Aircraft first flown in 1924]]</text>
+      <sha1>rfnahb2fi8xbf2ml5lhcmbdozn00slb</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Moon Lake (Nova Scotia)</title>
+    <ns>0</ns>
+    <id>23570397</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843129</id>
+      <parentid>956397954</parentid>
+      <timestamp>2020-05-26T00:14:32Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Mountain Lake (Nova Scotia)</title>
+    <ns>0</ns>
+    <id>23570398</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843149</id>
+      <parentid>956398015</parentid>
+      <timestamp>2020-05-26T00:14:38Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Murphys Black Duck Lake</title>
+    <ns>0</ns>
+    <id>23570399</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843169</id>
+      <parentid>956398046</parentid>
+      <timestamp>2020-05-26T00:14:44Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Soviet Kitsch (album)</title>
+    <ns>0</ns>
+    <id>23570400</id>
+    <redirect title="Soviet Kitsch" />
+    <revision>
+      <id>301536789</id>
+      <timestamp>2009-07-11T11:22:05Z</timestamp>
+      <contributor>
+        <username>Graeme Bartlett</username>
+        <id>38427</id>
+      </contributor>
+      <comment>moved [[Soviet Kitsch (album)]] to [[Soviet Kitsch]]: [[WP:CSD#G6|Housekeeping page move]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="27" xml:space="preserve">#REDIRECT [[Soviet Kitsch]]</text>
+      <sha1>lmgfwip2x5u02hiyei516p2293zcsse</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Niagara Lake</title>
+    <ns>0</ns>
+    <id>23570401</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843253</id>
+      <parentid>956398187</parentid>
+      <timestamp>2020-05-26T00:15:14Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Nelson Lake (Halifax)</title>
+    <ns>0</ns>
+    <id>23570403</id>
+    <revision>
+      <id>988484966</id>
+      <parentid>956398150</parentid>
+      <timestamp>2020-11-13T13:45:36Z</timestamp>
+      <contributor>
+        <username>Liverpoolpics</username>
+        <id>30628212</id>
+      </contributor>
+      <comment>+map</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="938" xml:space="preserve">{{Infobox body of water
+ | name = Nelson Lake Halifax
+ | image = 
+ | caption = 
+ | image_bathymetry = 
+ | caption_bathymetry = 
+ | location =[[Halifax Regional Municipality]], [[Nova Scotia]]
+ | coords = {{coord|44.723512|N|63.427699|W|type:waterbody|display=title,inline}}
+ | type = 
+|pushpin_map=Nova Scotia
+ | inflow = 
+ | outflow = 
+ | catchment =
+ | basin_countries = Canada
+ | length = 
+ | width = 
+ | area = 
+ | depth = 
+ | max-depth = 
+ | volume = 
+ | residence_time = 
+ | shore = 
+ | elevation = 
+ | islands = 
+ | cities = 
+}}
+''' Nelson Lake Halifax ''' is a lake of [[Halifax Regional Municipality]], lying northeast of Dartmouth City in [[Nova Scotia]], [[Canada]].
+
+==See also==
+*[[List of lakes in Nova Scotia]]
+
+==References==
+* [https://web.archive.org/web/20090207222912/http://geonames.nrcan.gc.ca/index_e.php National Resources Canada]
+
+
+{{authority control}}
+
+[[Category:Lakes of Nova Scotia]]
+
+
+{{HalifaxNS-geo-stub}}</text>
+      <sha1>i46jp1geom2uhy6ybfe1kfkg1usp2y7</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Newcombe Lake</title>
+    <ns>0</ns>
+    <id>23570404</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843210</id>
+      <parentid>956398182</parentid>
+      <timestamp>2020-05-26T00:14:58Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Åsa</title>
+    <ns>0</ns>
+    <id>23570409</id>
+    <revision>
+      <id>985867522</id>
+      <parentid>985818773</parentid>
+      <timestamp>2020-10-28T12:29:21Z</timestamp>
+      <contributor>
+        <username>Leschnei</username>
+        <id>27335766</id>
+      </contributor>
+      <comment>[[MOS:DAB|DAB-style]] cleanup</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="805" xml:space="preserve">'''Åsa''' may refer to:
+
+* [[Åsa, Kungsbacka]],  Kungsbacka Municipality, Halland County, Sweden
+* [[Åsa, Ringerike]], Ringerike municipality, Buskerud, Norway
+
+==People with the given name==
+* [[Åsa Domeij]] (born 1962), former politician for the Swedish Green Party
+* [[Åsa Larsson]] (born 1966), Swedish crime-fiction writer
+* [[Åsa Regnér]] (born 1964), Swedish politician
+* [[Åsa Romson]] (born 1972), Swedish politician
+* [[Åsa Sandell]] (born 1967), Swedish journalist and former boxer
+* [[Åsa Svensson]] (born 1975), Swedish tennis player
+* [[Åsa Westlund]] (born 1976), Swedish politician
+
+==See also==
+* [[Aasa (disambiguation)]]
+* [[Asa (disambiguation)]]
+* [[Åse (disambiguation)]], the Norwegian version of the name
+
+{{disambiguation|given name}}
+[[Category:Feminine given names]]</text>
+      <sha1>5ftny3t3a16szqlyx1mux0gerqnmdbj</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Four digit groups of the United States Air Force</title>
+    <ns>14</ns>
+    <id>23570413</id>
+    <revision>
+      <id>681803700</id>
+      <parentid>503342663</parentid>
+      <timestamp>2015-09-19T16:52:09Z</timestamp>
+      <contributor>
+        <username>Lineagegeek</username>
+        <id>5681255</id>
+      </contributor>
+      <comment>removed [[Category:MAJCOM temporary units of the United States Air Force]]; added [[Category:MAJCOM units of the United States Air Force]] using [[WP:HC|HotCat]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="107" xml:space="preserve">[[Category:Groups of the United States Air Force]]
+[[Category:MAJCOM units of the United States Air Force]]</text>
+      <sha1>oh2030z47wzjl9m1mi0vvdm0jfl1nfu</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Oak Hill Lake (Halifax)</title>
+    <ns>0</ns>
+    <id>23570416</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843309</id>
+      <parentid>956398268</parentid>
+      <timestamp>2020-05-26T00:15:30Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Obrien Lake</title>
+    <ns>0</ns>
+    <id>23570419</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843334</id>
+      <parentid>956398282</parentid>
+      <timestamp>2020-05-26T00:15:39Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Porcupine Lake (Nova Scotia)</title>
+    <ns>0</ns>
+    <id>23570421</id>
+    <revision>
+      <id>989522388</id>
+      <parentid>956398569</parentid>
+      <timestamp>2020-11-19T13:40:12Z</timestamp>
+      <contributor>
+        <username>Liverpoolpics</username>
+        <id>30628212</id>
+      </contributor>
+      <comment>+map</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="998" xml:space="preserve">{{Infobox body of water
+ | name = Porcupine Lake, Nova Scotia
+ | image = 
+ | caption = 
+|pushpin_map=Nova Scotia
+ | image_bathymetry = 
+ | caption_bathymetry = 
+ | location =[[Aldersville, Lunenburg County]], [[Nova Scotia]]
+ | coords = {{coord|44.785457|N|63.419250|W|type:waterbody|display=title,inline}}
+ | type = 
+ | inflow = 
+ | outflow = 
+ | catchment =
+ | basin_countries = Canada
+ | length = 
+ | width = 
+ | area = 
+ | depth = 
+ | max-depth = 
+ | volume = 
+ | residence_time = 
+ | shore = 
+ | elevation = 
+ | islands = 
+ | cities = 
+}}
+'''Porcupine Lake''' is located near the community of Aldersville, Lunenburg County, [[Nova Scotia]], [[Canada]].
+
+==See also==
+*[[File:B002262.png|thumb|Porcupine Lake, Lunenburg County, Nova Scotia, Canada]][[List of lakes in Nova Scotia]]
+
+==References==
+* [https://web.archive.org/web/20090207222912/http://geonames.nrcan.gc.ca/index_e.php National Resources Canada]
+
+
+{{authority control}}
+
+[[Category:Lakes of Nova Scotia]]
+
+
+{{HalifaxNS-geo-stub}}</text>
+      <sha1>agbjp0lj71uxtyfoify4awyy1pqcnuz</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Quarry Lake (Nova Scotia)</title>
+    <ns>0</ns>
+    <id>23570422</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843464</id>
+      <parentid>956398616</parentid>
+      <timestamp>2020-05-26T00:16:28Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Queen Lake</title>
+    <ns>0</ns>
+    <id>23570423</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843481</id>
+      <parentid>956398622</parentid>
+      <timestamp>2020-05-26T00:16:32Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Paul Lake (Nova Scotia)</title>
+    <ns>0</ns>
+    <id>23570425</id>
+    <redirect title="List of lakes of Nova Scotia" />
+    <revision>
+      <id>958843357</id>
+      <parentid>956398415</parentid>
+      <timestamp>2020-05-26T00:15:48Z</timestamp>
+      <contributor>
+        <username>Reywas92</username>
+        <id>1233313</id>
+      </contributor>
+      <minor />
+      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
+      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
+    </revision>
+  </page>
+</mediawiki>

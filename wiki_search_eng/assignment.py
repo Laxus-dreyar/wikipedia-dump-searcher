@@ -1,91 +1,117 @@
-import xml.sax
 import time
 import xml.etree.ElementTree as ET
+from nltk.stem.snowball import SnowballStemmer
+import json
 from nltk.corpus import stopwords
+import gensim
+from gensim.parsing.preprocessing import remove_stopwords, STOPWORDS
 from nltk.tokenize import word_tokenize
 
-class IndexHandler( xml.sax.ContentHandler ):
 
-    def __init__(self):
-        self.curID = 1
-        self.curTag = ''
-        self.docID = ''
-        self.title = ''
-        self.infoBox = ''
-        self.body = ''
-        self.category = ''
-        self.links = ''
-        self.references = ''
-        self.text = ''
-        self.un_list = []
-        self.time = 0
-
-    def startDocument(self):
-        self.time = time.time()
-
-    def startElement(self,name,attributes):
-        self.curTag = name
-        if name not in self.un_list:
-            self.un_list.append(name)
-        
-        if name == 'page':
-            self.docID = self.curID
-            self.curID = self.curID + 1
+def remove_stop(sent):
+    # stop_words = list(stopwords.words('english'))
+    punt1 = set(['+','=','-','_',')','(','*','&','^','%','$','#','@','!','~','`','|','\\',']','}','[','{','\'','\"','\;','\:','/','?','.','>','<',','])
+    # punct2 = ["he'd","let's","there's","she'd","we'll","can't","i'm","why's","i've","when's","who's","they'd","i'd","they're","could","cannot","that's","i'll","ought","would","they'll","he'll","he's","what's","here's","we'd","she'll","we've","we're","how's","where's","they've"]
+    # stop_words.extend(punt1)
+    # stop_words = set(stop_words)
+    stop_words = STOPWORDS
+    snow_stemmer = SnowballStemmer(language='english')
+    sent1 = sent
+    word_tokens = word_tokenize(sent1)
+    temp = {}
+    for w in word_tokens:
+        if (w not in stop_words) and (w not in punt1):
+            stemmed = snow_stemmer.stem(w)
+            if stemmed not in temp:
+                temp[stemmed] = 1
+            else:
+                temp[stemmed] = temp[stemmed] + 1
     
-    def endElement(self, name):
-        if name == 'page':
-            self.curTag = ''
-            self.title = ''
-            self.infoBox = ''
-            self.body = ''
-            self.category = ''
-            self.links = ''
-            self.references = ''
+    return temp
+    
+
+start_time = time.time()
+# tree = ET.parse('../dump.xml')
+tree = ET.parse('./dump1.xml')
+root = tree.getroot()
+index = {}
+docID = 0
+step = 0
+
+
+for elem in root.iter():
+
+    if elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}title':
+        docID = docID + 1
+        t = elem.text
+        if not t:
+            continue
+
+        t = t.lower()
+        temp = remove_stop(t)
+        # temp = {}
+        
+        # for w in tokened:
+        #     if w in temp:
+        #         temp[w] = temp[w] + 1
+        #     else:
+        #         temp[w] = 1
+        
+        for w in temp:
+
+            if w not in index:
+                index[w] = {}
             
+            if docID not in index[w]:
+                index[w][docID] = []
+
+            key = "t"
+            index[w][docID].append(key + str(temp[w]))
+            
+    elif elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}text':
         
-        if name == 'text':
-            self.text = ''
+        t = elem.text
+        if not t:
+            continue
+
+        t = t.lower()
+        temp = remove_stop(t)
+        # temp = {}
         
-        if name == 'title':
-            self.title = ''
-            # print(self.curID)
+        # for w in tokened:
+        #     if w in temp:
+        #         temp[w] = temp[w] + 1
+        #     else:
+        #         temp[w] = 1
         
-        # if name == 'body':
-        #     x = self.remove_stop(self.body)
+        for w in temp:
+
+            if w not in index:
+                index[w] = {}
+            
+            if docID not in index[w]:
+                index[w][docID] = []
+
+            key = "b"
+            index[w][docID].append(key + str(temp[w]))
+                
+
+        # external_links_split = bod.split("==External links==")
+        # cur_links = []
+
+        # if len(external_links_split)>1:
+        #     temp = external_links_split[1].split('\n')
+        #     for link in temp:
+        #         if len(link) > 0 and link[0] == '*':
+        #             cur_links.append(link)
         
-        # if name == 'title':
-        #     print(self.title)
+        # print(len(cur_links))
     
-    def characters(self, content):
-        if self.curTag == 'title':
-            self.title += content
-        else:
-            self.text += content
-    
-    def endDocument(self):
-        print(time.time()-self.time)
-    
-    def remove_stop(self,str):
-        stop_words = list(stopwords.words('english'))
-        stop_words.append(".")
-        out = [w for w in word_list if not w in stop_words]
-        return out
-    
+    step = step + 1
+    if step%20000 == 0:
+        print(step)
 
 
-parser = xml.sax.make_parser()
-parser.setFeature(xml.sax.handler.feature_namespaces, 0)
-indexer = IndexHandler()
-parser.setContentHandler(indexer)
-parser.parse('../dump.xml')
-
-
-# tree = ET.parse('../wiki-dump.xml')
-# root = tree.getroot()
-# un = []
-# for elem in root.iter():
-#     if elem.tag not in un:
-#         un.append(elem.tag)
-
-# for i in un:
-#     print(i)
+print("time taken = ", time.time()-start_time)
+with open('index.txt','w') as convert_file:
+    convert_file.write(json.dumps(index))
