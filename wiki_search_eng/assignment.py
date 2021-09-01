@@ -33,7 +33,7 @@ docID = 0
 step = 0
 
 
-for event,elem in iter(ET.iterparse('../dump.xml', events=("start", "end"))):
+for event,elem in iter(ET.iterparse('./dump1.xml', events=("start", "end"))):
 
     if elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}title' and event == "start":
         docID = docID + 1
@@ -48,49 +48,64 @@ for event,elem in iter(ET.iterparse('../dump.xml', events=("start", "end"))):
             if w not in index:
                 index[w] = {}
             
-            if docID not in index[w]:
-                index[w][docID] = []
-
             key = "t"
-            index[w][docID].append(key + str(temp[w]))
+
+            if key not in index[w]:
+                index[w][key] = {}
+
+            index[w][key][docID] = temp[w]
             
     elif elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}text' and event == "start":
         
+        docID = docID + 1
         t = elem.text
         if not t:
             continue
 
-        t = t.lower()
-        temp = remove_stop(t)
+        content_split = t.split("==References==")
+        body = content_split[0].lower()
+
+        temp = remove_stop(body)
         
         for w in temp:
 
             if w not in index:
                 index[w] = {}
             
-            if docID not in index[w]:
-                index[w][docID] = []
-
             key = "b"
-            index[w][docID].append(key + str(temp[w]))
-                
 
-        # external_links_split = bod.split("==External links==")
-        # cur_links = []
+            if key not in index[w]:
+                index[w][key] = {}
 
-        # if len(external_links_split)>1:
-        #     temp = external_links_split[1].split('\n')
-        #     for link in temp:
-        #         if len(link) > 0 and link[0] == '*':
-        #             cur_links.append(link)
+            index[w][key][docID] = temp[w]
+
+
+        if len(content_split) == 1:
+            continue
+
         
-        # print(len(cur_links))
+
+        cur_links = []
+
+        if len(external_links_split)>1:
+            temp = external_links_split[1].split('\n')
+            for link in temp:
+                if len(link) > 0 and link[0] == '*':
+                    cur_links.append(link)
+        
+            print(len(cur_links))
+
+
+        
     
-    step = step + 1
-    if step%20000 == 0:
-        print(step)
+    # step = step + 1
+    # if step%20000 == 0:
+    #     print(step)
 
 
-print("time taken = ", time.time()-start_time)
 with open('index.txt','w') as convert_file:
     convert_file.write(json.dumps(index))
+    convert_file.close()
+
+print("time taken = ", time.time()-start_time)
+print(len(index))
