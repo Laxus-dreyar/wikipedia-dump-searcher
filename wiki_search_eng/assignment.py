@@ -1,26 +1,23 @@
 import time
 import xml.etree.ElementTree as ET
+import re
+import pickle
 from nltk.stem.snowball import SnowballStemmer
 import json
-from nltk.corpus import stopwords
-import gensim
-from gensim.parsing.preprocessing import remove_stopwords, STOPWORDS
-from nltk.tokenize import word_tokenize
+
+
+f = open('./stop.pickle','rb')
+stop_words = pickle.load(f)
+f.close()
+snow_stemmer = SnowballStemmer(language='english')
+tok_reg = re.compile(r'[A-Za-z0-9]+')
 
 
 def remove_stop(sent):
-    # stop_words = list(stopwords.words('english'))
-    punt1 = set(['+','=','-','_',')','(','*','&','^','%','$','#','@','!','~','`','|','\\',']','}','[','{','\'','\"','\;','\:','/','?','.','>','<',','])
-    # punct2 = ["he'd","let's","there's","she'd","we'll","can't","i'm","why's","i've","when's","who's","they'd","i'd","they're","could","cannot","that's","i'll","ought","would","they'll","he'll","he's","what's","here's","we'd","she'll","we've","we're","how's","where's","they've"]
-    # stop_words.extend(punt1)
-    # stop_words = set(stop_words)
-    stop_words = STOPWORDS
-    snow_stemmer = SnowballStemmer(language='english')
-    sent1 = sent
-    word_tokens = word_tokenize(sent1)
+    word_tokens = re.findall(tok_reg,sent)
     temp = {}
     for w in word_tokens:
-        if (w not in stop_words) and (w not in punt1):
+        if w not in stop_words:
             stemmed = snow_stemmer.stem(w)
             if stemmed not in temp:
                 temp[stemmed] = 1
@@ -31,31 +28,20 @@ def remove_stop(sent):
     
 
 start_time = time.time()
-# tree = ET.parse('../dump.xml')
-tree = ET.parse('./dump1.xml')
-root = tree.getroot()
 index = {}
 docID = 0
 step = 0
 
 
-for elem in root.iter():
+for event,elem in iter(ET.iterparse('../dump.xml', events=("start", "end"))):
 
-    if elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}title':
+    if elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}title' and event == "start":
         docID = docID + 1
         t = elem.text
         if not t:
             continue
-
         t = t.lower()
         temp = remove_stop(t)
-        # temp = {}
-        
-        # for w in tokened:
-        #     if w in temp:
-        #         temp[w] = temp[w] + 1
-        #     else:
-        #         temp[w] = 1
         
         for w in temp:
 
@@ -68,7 +54,7 @@ for elem in root.iter():
             key = "t"
             index[w][docID].append(key + str(temp[w]))
             
-    elif elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}text':
+    elif elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}text' and event == "start":
         
         t = elem.text
         if not t:
@@ -76,13 +62,6 @@ for elem in root.iter():
 
         t = t.lower()
         temp = remove_stop(t)
-        # temp = {}
-        
-        # for w in tokened:
-        #     if w in temp:
-        #         temp[w] = temp[w] + 1
-        #     else:
-        #         temp[w] = 1
         
         for w in temp:
 
