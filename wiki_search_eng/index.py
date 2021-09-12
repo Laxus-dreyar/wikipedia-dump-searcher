@@ -14,13 +14,14 @@ token_reg = re.compile(r'[A-Za-z0-9]+')
 css_reg = re.compile(r'{\|(.*?)\|}',re.DOTALL)
 link_reg = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+',re.DOTALL)
 extension_set = set(['jpg','jpeg','png'])
+comment_sq = re.compile(r'(\[\[[^\[\]]*\]\])')
 
 def add_to_index(t,key):
     
     word_tokens = re.findall(token_reg,t)
     temp = {}
     for w in word_tokens:
-        if (w in stop_words) or (w[-3:] in extension_set):
+        if (w in stop_words) or (w[-3:] in extension_set) or (len(w) > 15):
             continue
         stemmed = snow_stemmer.stemWord(w)
         if stemmed not in temp:
@@ -36,7 +37,6 @@ def add_to_index(t,key):
         if key not in index[w]:
             index[w][key] = []
 
-        # index[w][key][docID] = temp[w]
         if temp[w] > 1:
             index[w][key].append(str(docID)+":"+str(temp[w]))
         else:
@@ -74,7 +74,6 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
             
     elif elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}text' and event == "end":
         
-        docID = docID + 1
         t = elem.text
         if not t:
             continue
@@ -121,6 +120,7 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
         
         content_split = t.split("[[category")
         if len(content_split) > 1:
+            temp = ""
             for i in range(len(content_split)):
                 if i == 1:
                     continue
@@ -129,9 +129,10 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
                     break
                 
                 t = t.replace(cate, '')
-                add_to_index(cate, 'c')
+                temp = temp + " " + cate
+            add_to_index(temp, 'c')
 
-        t=re.sub(r'\`|\~|\!|\@|\#|\"|\'|\$|\%|\^|\&|\*|\(|\)|\-|\_|\=|\+|\\|\||\]|\[|\}|\{|\;|\:|\/|\?|\.|\>|\,|\<|\'|\n|\||\|\/"',r' ',t)
+        t = re.sub(comment_sq, ' ', t)
         add_to_index(t, 'b')
     
     step = step + 1
