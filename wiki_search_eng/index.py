@@ -229,7 +229,8 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
         if docID%1000 == 0:
             print(docID)
             f = open("progress_file.txt",'w+')
-            f.write(str(docID) + " " + str(time.time() - start_time))
+            f.write(str(docID))
+            f.close()
         
         if docID%100000 == 0:
             write_to_file(saving_path)
@@ -250,3 +251,8 @@ write_to_file(saving_path)
 write_title_dict()
 
 print("time taken = ", time.time()-start_time)
+
+print(docID)
+f = open("progress_file.txt",'w+')
+f.write(str(docID))
+f.close()
