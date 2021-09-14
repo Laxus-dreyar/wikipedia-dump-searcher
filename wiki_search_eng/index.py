@@ -195,7 +195,7 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
         if len(content_split) > 1:
             external_links = content_split[1].split("\n\n")[0]
             t = t.replace(external_links, ' ')
-            add_to_index(external_links, 'e')
+            add_to_index(external_links, 'l')
 
         content_split = t.split("{{infobox")
         if len(content_split) > 1:
@@ -228,6 +228,8 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
 
         if docID%1000 == 0:
             print(docID)
+            f = open("progress_file.txt",'w+')
+            f.write(str(docID) + " " + str(time.time() - start_time))
         
         if docID%100000 == 0:
             write_to_file(saving_path)
@@ -235,7 +237,7 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
             for keys_all in all_dict_keys:
                 all_dict[keys_all] = {}
     
-    if event == "end":
+    if elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}page' and event == "end":
         elem.clear()
 
     
