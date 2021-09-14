@@ -27,7 +27,7 @@ category_reg = re.compile(r'\[\[category:.*?\]\]')
 
 all_dict = {}
 all_dict_keys = []
-title_dict = []
+title_dict = {}
 title_dump_number = 1
 
 def make_dict():
@@ -131,13 +131,13 @@ def write_title_dict():
     if saving_path[-1] != "/":
         saving_path = saving_path + "/"
 
-    file_path = saving_path + "t_dump " +str(title_dump_number) + ".txt"
+    file_path = saving_path + "t_d" +str(title_dump_number) + ".txt"
     f = open(file_path,'w+')
-    for i in title_dict:
-        f.write(i.replace("\n","") + "\n")
-    # f.write(json.dumps(title_dict, indent=0, separators=(",", ":")).replace("\n", ""))
+    # for i in title_dict:
+    #     f.write(i.replace("\n","") + "\n")
+    f.write(json.dumps(title_dict, indent=0, separators=(",", ":")).replace("\n", ""))
     f.close()
-    title_dict = []
+    title_dict = {}
     title_dump_number = title_dump_number + 1
 
 docID = 0
@@ -150,13 +150,15 @@ make_dict()
 
 for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
     
-    if elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}title' and event == "end":
+    if elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}page' and event == "start":
         docID = docID + 1
+
+    if elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}title' and event == "end":
         t = elem.text
         if not t:
             continue
 
-        title_dict.append(t)
+        title_dict[docID] = t
 
         t = t.lower()
         
