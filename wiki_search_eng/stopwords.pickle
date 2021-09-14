@@ -227,7 +227,7 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
         if docID%1000 == 0:
             print(docID)
         
-        if docID%100000 == 0:
+        if docID%500 == 0:
             write_to_file(saving_path)
             all_dict = {}
             for keys_all in all_dict_keys:
