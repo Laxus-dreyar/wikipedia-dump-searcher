@@ -15,11 +15,14 @@ token_reg = re.compile(r'[A-Za-z0-9]+')
 css_reg = re.compile(r'{\|(.*?)\|}',re.DOTALL)
 link_reg = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+',re.DOTALL)
 extension_set = set(['jpg','jpeg','png'])
-comment_sq = re.compile(r'(\[\[[^\[\]]*\]\])')
+# comment_sq = re.compile(r'(\[\[[^\[\]]*\]\])')
+alnum_garbage = re.compile(r"[0-9]+[a-z]+[0-9a-z]*")
 digit_list = ['0','1','2','3','4','5','6','7','8','9']
 
 all_dict = {}
 all_dict_keys = []
+title_dict = {}
+title_dump_number = 1
 
 def make_dict():
     global all_dict
@@ -48,7 +51,7 @@ def add_to_index(t,key):
     word_tokens = re.findall(token_reg,t)
     temp = {}
     for w in word_tokens:
-        if (w in stop_words) or (w[-3:] in extension_set) or (len(w) > 15):
+        if (w in stop_words) or (w[-3:] in extension_set) or (len(w) > 15) or ((w[0] in digit_list) and len(w)>4):
             continue
         stemmed = snow_stemmer.stemWord(w)
         if stemmed not in temp:
@@ -89,6 +92,10 @@ def write_to_file(saving_path):
     
     for key in list(all_dict.keys()):
         index = {}
+
+        temp_index_key = all_dict[key]
+        if not temp_index_key:
+            continue
         file_path = saving_path + key + ".json"
         if os.path.isfile(file_path):
             f = open(file_path,'r')
@@ -103,16 +110,23 @@ def write_to_file(saving_path):
                 if context_key not in index[w]:
                     index[w][context_key] = {}
                 
-                try:
-                    for stored_ids in list(all_dict[key][w][context_key]):
-                        index[w][context_key][stored_ids] = all_dict[key][w][context_key][stored_ids]
-                except:
-                    print(w,context_key,docID)
+                for stored_ids in list(all_dict[key][w][context_key]):
+                    index[w][context_key][stored_ids] = all_dict[key][w][context_key][stored_ids]
         
         f = open(file_path,'w+')
-        f.write(json.dumps(index))
+        f.write(json.dumps(index, indent=0, separators=(",", ":")).replace("\n", ""))
         f.close()
 
+
+def write_title_dict():
+    global title_dict
+    global title_dump_number
+    file_path = "title_dict/" + str(title_dump_number) + ".json"
+    f = open(file_path,'w+')
+    f.write(json.dumps(title_dict, indent=0, separators=(",", ":")).replace("\n", ""))
+    f.close()
+    title_dict = {}
+    title_dump_number = title_dump_number + 1
 
 docID = 0
 step = 0
@@ -130,13 +144,19 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
         if not t:
             continue
 
+        title_dict[docID] = t
+
         t = t.lower()
         
         t = re.sub(link_reg,' ',t)
         t = re.sub(css_reg,' ',t)
-        t = re.sub(comment_sq, ' ', t)
+        # t = re.sub(comment_sq, ' ', t)
+        # t = re.sub(alnum_garbage, ' ', t)
         
         add_to_index(t, 't')
+
+        if docID%20000 == 0:
+            write_title_dict()
 
             
     elif elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}text' and event == "end":
@@ -149,6 +169,7 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
 
         t = re.sub(link_reg,' ',t)
         t = re.sub(css_reg,' ',t)
+        t = re.sub(alnum_garbage, ' ', t)
 
         content_split = t.split("==references==")
         if len(content_split) > 1:
@@ -194,13 +215,13 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
                 temp = temp + " " + cate
             add_to_index(temp, 'c')
 
-        t = re.sub(comment_sq, ' ', t)
+        # t = re.sub(comment_sq, ' ', t)
         add_to_index(t, 'b')
 
         if docID%1000 == 0:
             print(docID)
         
-        if docID%20000 == 0:
+        if docID%1000000 == 0:
             write_to_file(saving_path)
             all_dict = {}
             for keys_all in all_dict_keys:
