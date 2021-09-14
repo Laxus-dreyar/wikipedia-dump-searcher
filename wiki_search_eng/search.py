@@ -2,13 +2,13 @@ import sys
 import json
 import pickle
 import re
-from nltk.stem.snowball import SnowballStemmer
+import Stemmer
 
 index_path = sys.argv[1] + "/index.txt"
-snow_stemmer = SnowballStemmer(language='english')
-f = open(index_path,'r')
-index = json.load(f)
-f.close()
+snow_stemmer = Stemmer.Stemmer('english')
+f = open("./stopwords.pickle")
+
+
 
 tok_reg = re.compile(r'[A-Za-z0-9]+')
 
