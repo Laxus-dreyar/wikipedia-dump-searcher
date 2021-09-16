@@ -179,7 +179,7 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
         
         add_to_index(t, 't')
 
-        if docID%20000 == 0:
+        if docID%60000 == 0:
             write_title_dict()
 
             
@@ -242,7 +242,7 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
             f.write(str(docID))
             f.close()
         
-        if docID%100000 == 0:
+        if docID%50000 == 0:
             write_to_file(saving_path)
             all_dict = {}
             for keys_all in all_dict_keys:

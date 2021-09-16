@@ -32,8 +32,8 @@ weights_for_terms = {}
 for i in term_keys:
     weights_for_terms[i] = 1
 
-weights_for_terms['t'] = 10
-weights_for_terms['i'] = 3
+weights_for_terms['t'] = 20
+weights_for_terms['i'] = 7
 field_queries = {}
 
 
@@ -164,7 +164,7 @@ def get_results(query):
                 except:
                     continue
         for docIDs in relevant_docs:
-            relevant_docs[docIDs] = relevant_docs[docIDs] * (times_repeated[docIDs] + 1)
+            relevant_docs[docIDs] = relevant_docs[docIDs] * (times_repeated[docIDs] + 1) * (times_repeated[docIDs] + 1)
 
         final_docs = get_ranked_heap(relevant_docs,10)
         final_return_list = []
@@ -175,7 +175,6 @@ def get_results(query):
             t_dict = json.load(f)
             f.close()
             final_return_list.append(str(i)+',' + " " + t_dict[str(i)])
-            # print(i,t_dict[str(i)])
         return final_return_list
     
     else:
@@ -249,7 +248,7 @@ def get_results(query):
                     continue
     
         for docIDs in relevant_docs:
-            relevant_docs[docIDs] = relevant_docs[docIDs] * (times_repeated[docIDs] + 1)
+            relevant_docs[docIDs] = relevant_docs[docIDs] * (times_repeated[docIDs] + 1) * (times_repeated[docIDs] + 1)
 
         final_docs = get_ranked_heap(relevant_docs,10)
         final_return_list = []
