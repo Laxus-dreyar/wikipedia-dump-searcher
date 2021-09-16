@@ -26,8 +26,38 @@ digit_list = ['0','1','2','3','4','5','6','7','8','9']
 category_reg = re.compile(r'\[\[category:.*?\]\]')
 
 all_dict = {}
+all_dict_keys = []
 title_dict = {}
 title_dump_number = 1
+
+def make_dict():
+    global all_dict
+    for i in range(36):
+        first_char = chr(ord("a")+i)
+
+        if i > 25:
+            first_char = chr(ord("0")+ i - 26)
+        
+        all_dict[first_char] = {}
+
+        for j in range(36):
+            second_char = chr(ord("a")+j)
+            if j > 25:
+                second_char = chr(ord("0")+ j - 26)
+            
+            two_char = first_char + second_char
+            all_dict[two_char] = {}
+
+            for k in range(36):
+                third_char = chr(ord("a")+k)
+                if k > 25:
+                    third_char = chr(ord("0")+ k - 26)
+                
+                three_char = first_char + second_char + third_char
+                all_dict[three_char] = {}
+    
+    for i in all_dict.keys():
+        all_dict_keys.append(i)
 
 def add_to_index(t,key):
     global all_dict
@@ -46,99 +76,61 @@ def add_to_index(t,key):
     for w in temp:
 
         if (len(w) == 1) or (len(w) == 2):
-            if w not in all_dict:
-                all_dict[w] = {}
-
+            
             if w not in all_dict[w]:
                 all_dict[w][w] = {}
             
-            if docID not in all_dict[w][w]:
-                all_dict[w][w][docID] = {}
+            if key not in all_dict[w][w]:
+                all_dict[w][w][key] = {}
             
-            all_dict[w][w][docID][key] = temp[w]
+            all_dict[w][w][key][docID] = temp[w]
             continue
         
-        first_char = w[0]
-        second_char = w[1]
-        third_char = w[2]
-
-        two_char = first_char + second_char + third_char
-
-        if two_char not in all_dict:
-            all_dict[two_char] = {}
+        two_char = w[0] + w[1] + w[2]
 
         if w not in all_dict[two_char]:
             all_dict[two_char][w] = {}
 
-        if docID not in all_dict[two_char][w]:
-            all_dict[two_char][w][docID] = {}
+        if key not in all_dict[two_char][w]:
+            all_dict[two_char][w][key] = {}
             
-        all_dict[two_char][w][docID][key] = temp[w]
+        all_dict[two_char][w][key][docID] = temp[w]
 
-# def write_to_file(saving_path):
-#     global all_dict
-#     if saving_path[-1] != "/":
-#         saving_path = saving_path + "/"
-    
-#     for key in list(all_dict.keys()):
-#         index = {}
-
-#         temp_index_key = all_dict[key]
-#         if not temp_index_key:
-#             continue
-#         file_path = saving_path + key + ".json"
-#         if os.path.isfile(file_path):
-#             f = open(file_path,'r')
-#             index = json.load(f)
-#             f.close()
-        
-#         for w in all_dict[key]:
-#             if w not in index:
-#                 index[w] = {}
-
-#             for context_key in list(all_dict[key][w]):
-#                 if context_key not in index[w]:
-#                     index[w][context_key] = {}
-                
-#                 for stored_ids in list(all_dict[key][w][context_key]):
-#                     index[w][context_key][stored_ids] = all_dict[key][w][context_key][stored_ids]
-        
-#         f = open(file_path,'w')
-#         f.write(json.dumps(index, indent=0, separators=(",", ":")).replace("\n", ""))
-#         f.close()
-
-current_chunk_no = 0
-def write_to_file_other():
+def write_to_file(saving_path):
     global all_dict
-    global saving_path
-    global current_chunk_no
-
-    temp_list = []
-    for file_key in all_dict.keys():
-        for w in all_dict[file_key].keys():
-            temp_string = str(w)
-            for docID in all_dict[file_key][w].keys():
-                temp_string = temp_string + " " + str(docID) + ":"
-                if 'b' in all_dict[file_key][w][docID].keys():
-                    temp_string = temp_string + str(all_dict[file_key][w][docID]['b']) + ","
-
-                for key in all_dict[file_key][w][docID].keys():
-                    if key == 'b':
-                        continue                    
-                    else:
-                        if all_dict[file_key][w][docID][key] > 1:
-                            temp_string = temp_string + str(key) + str(all_dict[file_key][w][docID][key])
-                        else:
-                            temp_string = temp_string + str(key)
-            
-            temp_string = temp_string
-            temp_list.append(temp_string)
+    if saving_path[-1] != "/":
+        saving_path = saving_path + "/"
     
-    f = open(saving_path + "index" + str(current_chunk_no),'w')
-    f.writelines(temp_list)
-    f.close()
+    for key in all_dict_keys:
+        if not all_dict[key]:
+            continue
 
-    current_chunk_no = current_chunk_no + 1
+        file_key_path = saving_path + key + ".json"
+        if os.path.isfile(file_key_path):
+            f = open(file_key_path,'r')
+            stored_index = json.load(f)
+            f.close()
+
+            for w in all_dict[key].keys():
+                if w not in stored_index:
+                    stored_index[w] = all_dict[key][w]
+                    continue
+                for field_key in all_dict[key][w].keys():
+                    if field_key not in stored_index[w]:
+                        stored_index[w][field_key] = all_dict[key][w][field_key]
+                        continue
+                    for stored_docIDs in all_dict[key][w][field_key]:
+                        stored_index[w][field_key][stored_docIDs] = all_dict[key][w][field_key][stored_docIDs]
+            
+            f = open(file_key_path,'w')
+            f.write(json.dumps(stored_index, indent=0, separators=(",", ":")).replace("\n", ""))
+            f.close()
+        
+        else:
+            f = open(file_key_path,'w')
+            f.write(json.dumps(all_dict[key], indent=0, separators=(",", ":")).replace("\n", ""))
+            f.close()
+
 
 def write_title_dict():
     global title_dict
@@ -162,7 +154,7 @@ step = 0
 dump_path = sys.argv[1]
 saving_path = sys.argv[2]
 
-# make_dict()
+make_dict()
 
 for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
     
@@ -248,9 +240,11 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
             f.write(str(docID))
             f.close()
         
-        if docID%500 == 0:
-            write_to_file_other()
+        if docID%100000 == 0:
+            write_to_file(saving_path)
             all_dict = {}
+            for keys_all in all_dict_keys:
+                all_dict[keys_all] = {}
     
     if elem.tag == '{http://www.mediawiki.org/xml/export-0.10/}page' and event == "end":
         elem.clear()
@@ -261,14 +255,13 @@ for event,elem in iter(ET.iterparse(dump_path, events=("start", "end"))):
 #     f.write(json.dumps(index))
 #     f.close()
 
-write_to_file_other()
+write_to_file(saving_path)
 write_title_dict()
 
-count = 0
-for i in all_dict.keys():
-    count = count + len(all_dict[i].keys())
+# with open('./index.json','w') as f:
+#     f.write(json.dumps(all_dict, indent=0, separators=(",", ":")).replace("\n", ""))
+#     f.close()
 
-print(count)
 print("time taken = ", time.time()-start_time)
 
 print(docID)
