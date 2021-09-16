@@ -269,7 +269,7 @@ list_of_file_names.sort()
 times_split = {}
 start_word = {}
 total_size = 0
-benchmark = int(100*1000)
+benchmark = int(40*1000*1000)
 count = 0
 
 for file_name in list_of_file_names:
@@ -283,7 +283,7 @@ for file_name in list_of_file_names:
     size = int(os.path.getsize(this_file_name))
     total_size = total_size + size
 
-    number_splits_req = 0
+    number_splits_req = -1
     if size > benchmark:
         count = count + 1
         number_splits_req = 2 * size // benchmark + 1
@@ -319,7 +319,7 @@ for file_name in list_of_file_names:
         
         os.remove(this_file_name)
 
-    times_split[file_name] = number_splits_req
+    times_split[file_name] = str(number_splits_req)
 
 print(total_size,count)
 f = open("./" + "times_split.txt",'w')
