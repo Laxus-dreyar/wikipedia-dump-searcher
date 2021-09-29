@@ -25,6 +25,10 @@ f = open("./progress_file.txt",'r')
 number_docs = int(f.readline())
 f.close()
 
+index_path = sys.argv[1]
+if index_path[-1] != "/":
+    index_path = index_path + "/"
+
 token_reg = re.compile(r'[A-Za-z0-9]+')
 term_keys = ['t','b','c','l','i','r']
 
@@ -108,7 +112,7 @@ def get_results(query):
             for w in temp_list:
                 try:
                     if (len(w) == 1) or (len(w) == 2):
-                        f = open("inverted_index/" + str(w),'r')
+                        f = open(index_path + str(w),'r')
                         index = json.load(f)
                         f.close()
                         
@@ -134,7 +138,7 @@ def get_results(query):
                     two_char = first_char + second_char + third_char
                     index = {}
                     if str(times_split[two_char]) == str(-1):
-                        f = open("inverted_index/" + str(two_char),'r')
+                        f = open(index_path + str(two_char),'r')
                         index = json.load(f)
                         f.close()
 
@@ -144,7 +148,7 @@ def get_results(query):
                             possible_file_name = two_char + "_" + str(possible_idno)
                             possible_start_word = str(start_words[possible_file_name])
                             if w < possible_start_word or possible_idno == int(times_split[two_char]) -1 :
-                                f = open('inverted_index/' + possible_file_name,'r')
+                                f = open(index_path + possible_file_name,'r')
                                 index = json.load(f)
                                 f.close()
                                 break
@@ -169,8 +173,8 @@ def get_results(query):
         final_docs = get_ranked_heap(relevant_docs,10)
         final_return_list = []
         for i in final_docs:
-            file_num = (int(i) // 20000) + 1
-            file_path = "inverted_index/t_d" + str(file_num) + ".txt"
+            file_num = (int(i) // 60000) + 1
+            file_path = index_path +"t_d" + str(file_num) + ".txt"
             f = open(file_path,'r')
             t_dict = json.load(f)
             f.close()
@@ -185,7 +189,7 @@ def get_results(query):
         for w in temp_list:
 
             if (len(w) == 1) or (len(w) == 2):
-                f = open("inverted_index/" + str(w),'r')
+                f = open(index_path + str(w),'r')
                 index = json.load(f)
                 f.close()
                 
@@ -215,7 +219,7 @@ def get_results(query):
             two_char = first_char + second_char + third_char
             index = {}
             if str(times_split[two_char]) == str(-1):
-                f = open("inverted_index/" + str(two_char),'r')
+                f = open(index_path + str(two_char),'r')
                 index = json.load(f)
                 f.close()
 
@@ -225,7 +229,7 @@ def get_results(query):
                     possible_file_name = two_char + "_" + str(possible_idno)
                     possible_start_word = str(start_words[possible_file_name])
                     if w < possible_start_word or possible_idno == int(times_split[two_char]) -1 :
-                        f = open('inverted_index/' + possible_file_name,'r')
+                        f = open(index_path + possible_file_name,'r')
                         index = json.load(f)
                         f.close()
                         break
@@ -253,8 +257,8 @@ def get_results(query):
         final_docs = get_ranked_heap(relevant_docs,10)
         final_return_list = []
         for i in final_docs:
-            file_num = (int(i) // 20000) + 1
-            file_path = "inverted_index/t_d" + str(file_num) + ".txt"
+            file_num = (int(i) // 60000) + 1
+            file_path = index_path + "t_d" + str(file_num) + ".txt"
             f = open(file_path,'r')
             t_dict = json.load(f)
             f.close()
@@ -262,7 +266,7 @@ def get_results(query):
             # print(i,t_dict[str(i)])
         return final_return_list
 
-queries_path = sys.argv[1]
+queries_path = sys.argv[2]
 
 f = open(queries_path)
 queries_list = f.readlines()

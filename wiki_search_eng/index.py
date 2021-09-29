@@ -269,7 +269,7 @@ list_of_file_names.sort()
 times_split = {}
 start_word = {}
 total_size = 0
-benchmark = int(40*1000*1000)
+benchmark = int(30*1000*1000)
 count = 0
 
 for file_name in list_of_file_names:
