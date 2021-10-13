@@ -10,4 +10,3 @@ To get the titles for search queries, run
     
     note that the answers will be written in queries_op.txt
 
-Please note that the stats mentioned in stats.txt are extrapolations of the stats that i got from running the index for a considerable amount of time as the entire dump could not be indexed due to time contraints
